@@ -235,7 +235,14 @@ if __name__ == "__main__":
         filename=cfg.run_config['log_file'], level=logging.INFO, format=FORMAT)
     run()
 
-    # # Lookback value with low Test Loss: 50, 60, 150, 230
+    # HERE is the experiment conducted for the the machine temperature dataset:
+
+    # 1. Find best lookbacks between 10-300, interval set to 10
+    # for lookbacksin range(10, 310, 10):
+    #     run(lookback)
+
+    # 2.Found three Lookback value with low Test Loss: 50, 60, 150
+    # Test them with incremental epochs
     # for lookback in [50, 60, 150]:
     #     logging.info(
     #         "~~~~~~~~~~~~~~~~~~~ Lookback: %s ~~~~~~~~~~~~~~~~~~~" % (lookback))
@@ -244,11 +251,14 @@ if __name__ == "__main__":
     #     logging.info(
     #         "~~~~~~~~~~~~~~~~ End of current lookback ~~~~~~~~~~~")
 
+    # 3. Found the best lookback is 50
     # Test with different Lookahead Value
-    # Lookback set to 50
     # for lookahead in range(1, 30, 5):
     #     logging.info(
     #         "~~~~~~~~~~~~~~~~~~~ lookahead: %s ~~~~~~~~~~~~~~~~~~~" % (lookahead))
     #     run(lookahead)
     #     logging.info(
     #         "~~~~~~~~~~~~~~~~ End of current lookahead ~~~~~~~~~~~")
+
+    # 4. Run Anomaly Detection in {Code/notebooks/NAB_machine_temp.ipynb}
+    # and compare the results with the original model
